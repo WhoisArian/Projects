@@ -8,8 +8,6 @@
 # Description: A simple shell script that reduces the volume of a Macintosh computer if no headphones are detected.
 
 
-
-
 # Check if wired headphones are plugged in
 
 headphones_connected_wired="$(
