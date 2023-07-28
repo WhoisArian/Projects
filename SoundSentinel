@@ -10,8 +10,10 @@
 
 
 
-# Check if headphones are plugged in
-headphones_connected="$(
+
+# Check if wired headphones are plugged in
+
+headphones_connected_wired="$(
   /usr/bin/osascript -l 'JavaScript' -e '
     ObjC.import("objc");
     ObjC.import("AVFoundation");
@@ -19,17 +21,23 @@ headphones_connected="$(
   '
 )"
 
-if [ "${headphones_connected}" = 'true' ]; then
-    echo 'Headphones ARE plugged in, Volume untouched!'
-    echo 'Thanks Pico'
-else
-    # Headphones not detected, check and adjust volume
-    volume=$(osascript -e 'output volume of (get volume settings)')
+# Check if Bluetooth headphones are connected
 
-    if [[ "$volume" -gt 3 ]]; then
-        osascript -e 'set volume output volume 0'
-        echo "Volume set to 0."
-    else
-        echo "Volume is already low."
-    fi
+headphones_connected_bluetooth="$(
+  /usr/sbin/system_profiler SPAudioDataType | grep -A 3 'Headphone Jack\|Bluetooth' | grep -B 3 -m 1 'Headphone Jack\|Bluetooth'
+)"
+
+if [ "${headphones_connected_wired}" = 'true' ] || [[ "$headphones_connected_bluetooth" != "" ]]; then
+  echo 'Headphones ARE connected, volume untouched'
+  echo 'Thanks Pico' 
+else
+  # Headphones not detected, check and adjust volume
+  volume=$(osascript -e 'output volume of (get volume settings)')
+
+  if [[ "$volume" -gt 3 ]]; then
+    osascript -e 'set volume output volume 0'
+    echo "Volume set to 0."
+  else
+    echo "Volume is already low."
+  fi
 fi
