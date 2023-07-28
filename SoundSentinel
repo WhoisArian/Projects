@@ -2,12 +2,12 @@
 #
 # Author: Arian A.
 # Co-Author: ChatGPT
-# Headphone Detection Script: Pico(Macadmins Slack)
+# Headphone Detection Script Author: Pico(Macadmins Slack)
 # Script: NoHeadphonesNoAudio.sh
 # Version: 1.0
-# Date: June 27, 2023
+# Date: June 28, 2023
 # Description: A simple shell script that reduces the volume of a Macintosh computer if no headphones are detected.
-# Use case: Libraries
+# Use case: Libraries, 
 
 
 
@@ -30,6 +30,7 @@ headphones_connected="$(
 
 if [ "${headphones_connected}" = 'true' ]; then
     echo 'Headphones ARE plugged in, Volume untouched!'
+    echo 'Thanks Pico'
 else
     # Headphones not detected, check and adjust volume
     volume=$(osascript -e 'output volume of (get volume settings)')
