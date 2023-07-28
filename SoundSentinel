@@ -10,14 +10,6 @@
 
 
 
-
-
-
-
-
-
-
-
 # Check if headphones are plugged in
 headphones_connected="$(
   /usr/bin/osascript -l 'JavaScript' -e '
