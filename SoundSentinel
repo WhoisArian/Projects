@@ -3,10 +3,14 @@
 # Author: Arian A.
 # Co-Author: ChatGPT
 # Headphone Detection Script Author: Pico(Macadmins Slack)
-# Version: 0.81
+# Version: 0.83
 # Date: June 28, 2023
 # Description: A simple shell script that reduces the volume of a Macintosh computer if no headphones are detected.
 
+
+# Allows code to be looped
+
+while true; do 
 
 # Check if wired headphones are plugged in
 
@@ -38,3 +42,7 @@ else
     echo "Volume is already low."
   fi
 fi
+
+# Stops for 10 sec, then restarts 
+  sleep 10
+done 
