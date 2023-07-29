@@ -45,4 +45,5 @@ fi
 
 # Stops for 10 sec, then restarts 
   sleep 10
+
 done 
