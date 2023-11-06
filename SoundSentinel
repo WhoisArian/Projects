@@ -43,7 +43,7 @@ else
   fi
 fi
 
-# Stops for 10 sec, then restarts 
-  sleep 10
+# Stops for 3 sec, then restarts 
+  sleep 3
 
 done 
