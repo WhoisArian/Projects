@@ -3,7 +3,7 @@
 # Author: Arian A.
 # Co-Author: ChatGPT
 # Headphone Detection Script Author: Pico(Macadmins Slack)
-# Version: 0.83
+# Version: 0.85
 # Date: June 28, 2023
 # Description: A simple shell script that reduces the volume of a Macintosh computer if no headphones are detected.
 
